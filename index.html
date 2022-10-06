@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISY</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+        integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-3 my-3">
+                <div class="position-sticky" style="top: 100px;">
+
+                    <form class="text-center py-4">
+                        <input type="text"
+                            class="placeholder-gray-800 focus:outline-none bg-gray-200 text-gray-800 w-2/4 py-2 px-3 font-poppins rounded-md"
+                            id="filterInput" placeholder="Search">
+                    </form>
+
+                    <div class="text-center py-4">
+                        <button id='0' onclick="filterBtnProducts(`women's clothing`)"
+                            class="btn btn-outline-dark m-1 btn-sm">Women's Clothing</button>
+                        <button id='1' onclick="filterBtnProducts(`men's clothing`)"
+                            class="btn btn-outline-dark m-1 btn-sm">Men's Clothing</button>
+                        <button id='2' onclick="filterBtnProducts(`jewelery`)"
+                            class="btn btn-outline-dark m-1 btn-sm">Jewelery</button>
+                        <button id='3' onclick="filterBtnProducts(`electronics`)"
+                            class="btn btn-outline-dark m-1 btn-sm">Electronics</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="products grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-12 gap-20"> </div>
+
+
+    <script src="./filter1.js"></script>
+    <script src="./filter2.js"></script>
+
+</body>
+
+</html>
