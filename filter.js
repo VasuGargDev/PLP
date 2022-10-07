@@ -87,10 +87,9 @@ function filterProducts(){
 //match function for filtering by text search based upon regular expression
 const match = (values, filterby, input) => {
     const p = Array.from(input).reduce((a, v, i) => `${a}[^${input.substr(i)}]*?${v}`, '');
-    //console.log(p)
+ 
     const re = RegExp(p);
-    //console.log(re)
-    //console.log(values.filter(v => v[filterby].toUpperCase().match(re)))
+    
     return values.filter(v => v[filterby].toUpperCase().match(re))
 }   
 
@@ -119,10 +118,3 @@ function filterBtnProducts(itemCategory){
     });
 
 }
-
-
-
-
-
-
-
