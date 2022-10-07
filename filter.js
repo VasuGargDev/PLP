@@ -1,7 +1,8 @@
 
 let grid = document.querySelector(".products");
-let filterInput = document.getElementById("filterInput");
 
+
+//fetching data from API
 fetch('./database/store.json')
     .then(res => res.json()) 
     .then(json =>{
@@ -13,25 +14,7 @@ fetch('./database/store.json')
     });
 
 
-function filterProducts(){
-    let filterValue = filterInput.value.toUpperCase();
-    let item = grid.querySelectorAll('.item')
-    
-
-    for (let i = 0; i < item.length; i++){
-        let span = item[i].querySelector('.title');
-
-        if(span.innerHTML.toUpperCase().indexOf(filterValue) > -1){
-            item[i].style.display = "initial";
-        }else{
-            item[i].style.display = "none";
-        }
-
-    }
-}
-
-
-
+// Getting values from API and cteating dynamic element
 function addElement(appendIn, value){
     let div = document.createElement('div');
     div.className = "item justify-self-center";
@@ -53,9 +36,33 @@ function addElement(appendIn, value){
 
 
 
+let filterInput = document.getElementById("filterInput");
 
+//adding event listener
 filterInput.addEventListener('keyup', filterProducts);
 
+
+
+function filterProducts(){
+    let filterValue = filterInput.value.toUpperCase();
+    let item = grid.querySelectorAll('.item')
+    
+
+    for (let i = 0; i < item.length; i++){
+        let span = item[i].querySelector('.title');
+
+        if(span.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+            item[i].style.display = "initial";
+        }else{
+            item[i].style.display = "none";
+        }
+
+    }
+}
+
+
+
+//filtering function for search bar
 function filterProducts(){
     while(grid.childNodes.length > 1){
         grid.removeChild(grid.lastChild)
@@ -77,7 +84,19 @@ function filterProducts(){
 
 }
 
+//match function for filtering by text search based upon regular expression
+const match = (values, filterby, input) => {
+    const p = Array.from(input).reduce((a, v, i) => `${a}[^${input.substr(i)}]*?${v}`, '');
+    //console.log(p)
+    const re = RegExp(p);
+    //console.log(re)
+    //console.log(values.filter(v => v[filterby].toUpperCase().match(re)))
+    return values.filter(v => v[filterby].toUpperCase().match(re))
+}   
 
+
+
+//filtering function for categories
 function filterBtnProducts(itemCategory){
 
   
@@ -103,14 +122,6 @@ function filterBtnProducts(itemCategory){
 
 
 
-const match = (values, filterby, input) => {
-    const p = Array.from(input).reduce((a, v, i) => `${a}[^${input.substr(i)}]*?${v}`, '');
-    //console.log(p)
-    const re = RegExp(p);
-    //console.log(re)
-    //console.log(values.filter(v => v[filterby].toUpperCase().match(re)))
-    return values.filter(v => v[filterby].toUpperCase().match(re))
-}   
 
 
 
