@@ -75,11 +75,10 @@ function filterProducts(){
         let filterValue = filterInput.value.toUpperCase();
         let filterData = match(json, 'title', filterValue)       //filtering by title
 
-
         for (const value of filterData){
             addElement(grid, value)
         }
-
+        
     });
 
 }
@@ -87,9 +86,7 @@ function filterProducts(){
 //match function for filtering by text search based upon regular expression
 const match = (values, filterby, input) => {
     const p = Array.from(input).reduce((a, v, i) => `${a}[^${input.substr(i)}]*?${v}`, '');
- 
     const re = RegExp(p);
-    
     return values.filter(v => v[filterby].toUpperCase().match(re))
 }   
 
@@ -98,7 +95,6 @@ const match = (values, filterby, input) => {
 //filtering function for categories
 function filterBtnProducts(itemCategory){
 
-  
     while(grid.childNodes.length > 1){
         grid.removeChild(grid.lastChild)
     }
