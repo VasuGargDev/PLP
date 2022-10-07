@@ -12,7 +12,7 @@ fetch('./database/store.json')
         
     });
 
-// Getting values from API and cteating dynamic element
+// Getting values from API and creating dynamic element
 function addElement(appendIn, value){
     let div = document.createElement('div');
     div.className = "item justify-self-center";
@@ -62,7 +62,7 @@ function filterProducts(){
     .then(json =>{
 
         let filterValue = filterInput.value.toUpperCase();
-        let filterData = match(json, 'title', filterValue)       //filtering by title
+        let filterData = match(json, 'title', filterValue)       //redirecting to match fn to filter by title
 
         for (const value of filterData){
             addElement(grid, value)
