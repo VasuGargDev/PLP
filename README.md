@@ -9,7 +9,7 @@ Visit in detail docs in [FakeStoreAPI](https://fakestoreapi.com) for more inform
 ## Why?
 As part of an assignment I had to design a PRODUCT LISTING PAGE and needed fake data.
 
-## Json Source
+## JSON Source
 Products https://fakestoreapi.com/products
 
 ## How to
