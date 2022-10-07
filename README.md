@@ -12,10 +12,10 @@ As part of an assignment I had to design a PRODUCT LISTING PAGE and needed fake 
 ## JSON Source
 Products https://fakestoreapi.com/products
 
-## How to
+## How?
 I have fetched all products data with fetchAPI method
 
-### Get all products
+### Syntax to get all products from API
 ```js
 fetch("https://fakestoreapi.com/products")
   .then((res) => res.json())
